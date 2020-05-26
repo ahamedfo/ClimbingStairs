@@ -2,35 +2,14 @@ from itertools import permutations
 
 
 class Solution(object):
-    d
+    #     def climbStairs(self, n):
+    #         a, b = 1, 1
+    #         for i in range(n):
+    #             a, b = b, a + b
+    #         return a
 
     def climbStairs(self, n):
-        opt = {}
-        opt[1], opt[2] = 1, 2
-        k = 1
-        while k != n:
-            if k += 1 != n:
-                k += 1
-            if k += 2 != n:
-                k += 1
-        return k
-        """
-        :type n: int
-        :rtype: int
-        """
-
-        4
-        1 + 1 + 1 + 1
-        2 + 1 + 1
-        2 + 2
-        1 + 1 + 2
-        1 + 2 + 1
-        permutate and add if its
-        not the
-        same as length
-
-        5
-        1 + 1 + 1 + 1 + 1
-        1 + 1 + 1 + 2
-        2 + 2 + 1
-        2 +
+        opt = [0, 1, 2] + [0 for i in range(0, n)]
+        for i in range(3, n + 1):
+            opt[i] = opt[i - 1] + opt[i - 2]
+        return opt[n]
